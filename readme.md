@@ -1,4 +1,4 @@
-# F1 Turning Points Dashboard
+# F1 Season Evolution Dashboard
 
 An interactive data visualization project analysing:
 
