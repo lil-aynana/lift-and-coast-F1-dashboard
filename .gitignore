@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+env/
+
+# FastF1 cache
+data/cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# VS Code settings
+.vscode/
+
+# OS system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# CSV outputs (optional)
+data/cleaned/*.csv
+
+# Streamlit temporary folders
+.streamlit/
