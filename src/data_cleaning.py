@@ -2,7 +2,20 @@ import fastf1
 import pandas as pd
 
 # Enable cache once for the whole module
-fastf1.Cache.enable_cache('../data/cache')
+# fastf1.Cache.enable_cache('../data/cache')
+import os
+import fastf1
+
+# Build cache path relative to THIS file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CACHE_DIR = os.path.join(BASE_DIR, '..', 'data', 'cache')
+
+# Ensure folder exists
+os.makedirs(CACHE_DIR, exist_ok=True)
+
+# Enable cache
+fastf1.Cache.enable_cache(CACHE_DIR)
+
 
 
 # -----------------------------------------------------------
@@ -56,19 +69,32 @@ def load_season_results(year):
 # 3. Get a DRIVER’S full season results
 # -----------------------------------------------------------
 def get_driver_season_details(year, driver_name):
-    """
-    Loads the full season for the given year, then returns all race details
-    for the specified driver.
-    """
     df = load_season_results(year)
 
     driver_df = df[df['driver'].str.contains(driver_name, case=False, na=False)]
 
     if driver_df.empty:
         print(f"No results found for driver: {driver_name} in {year}.")
-        return None
+        return None, None, None
 
-    return driver_df.sort_values(by="round").reset_index(drop=True)
+    # Sort results
+    driver_df = driver_df.sort_values(by="round").reset_index(drop=True)
+
+    # Calculate metrics
+    avg_finish = driver_df["position"].mean()
+    total_points = driver_df["points"].sum()
+
+    # ------------------------------
+    # AUTO-PRINT RESULTS (your request)
+    # ------------------------------
+    # print(f"\nSeason Summary for {driver_name} ({year}):")
+    # print("----------------------------------------")
+    # print(driver_df[["round", "raceName", "position", "points"]])
+    print(f"\nAverage Finishing Position: {avg_finish:.2f}")
+    print(f"Total Points Scored: {total_points}\n")
+
+    return driver_df
+
 
 
 # -----------------------------------------------------------
