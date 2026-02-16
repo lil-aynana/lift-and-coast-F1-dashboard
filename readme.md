@@ -4,14 +4,10 @@ An interactive web application designed for Formula 1 enthusiasts and data analy
 🚀 Live Features
 Race Explorer: Search and retrieve specific results for any driver across different seasons.
 Season Overviews: View full classification results for every driver in a selected year.
-Mathematical Title Analysis: Track "turning points" and calculate the exact moment of mathematical elimination for title contenders.
 Constructor Battles: Visualizing the head-to-head point evolution between rival teams.
 
 🛠️ Tech Stack
-Framework: Streamlit (UI & Dashboarding)
-Data Engine: FastF1 (Accessing official F1 timing and telemetry)
-Data Manipulation: Pandas
-Visualization: Plotly (Interactive charts) & Matplotlib
+Streamlit, FastF1 API, Pandas, Plotly, Matplotlib & Numpy
 
 📂 Project Structure
 ├── app/            # Streamlit application UI and pages
