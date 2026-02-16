@@ -13,3 +13,12 @@ Data Engine: FastF1 (Accessing official F1 timing and telemetry)
 Data Manipulation: Pandas
 Visualization: Plotly (Interactive charts) & Matplotlib
 
+📂 Project Structure
+├── app/            # Streamlit application UI and pages
+├── src/            # Core logic and data processing modules
+├── scripts/        # Utility scripts for data fetching or maintenance
+├── data/           # Local storage for cached race data
+├── notebooks/      # Exploratory Data Analysis (EDA) and prototyping
+├── readme.md       # Project documentation
+└── .gitignore      # Git exclusion rules
+
